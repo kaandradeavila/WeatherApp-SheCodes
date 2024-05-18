@@ -24,11 +24,11 @@
     border-radius: 10px;
     background-color: #BDF1F6;
     color: #0245a3;
+    transition: all 200ms ease-in-out;
 }
 
 .city-search-btn:hover{
     color: #BDF1F6;
     background-color: #0245a3;
     cursor: pointer;
-    transition: 200ms;
 }
