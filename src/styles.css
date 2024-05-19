@@ -80,3 +80,19 @@
     justify-content: space-around;
     text-align: right;
 }
+
+footer{
+    color: #2e2a4e;
+    opacity: 80%;
+    font-size: 14px;
+}
+
+footer a{
+    color: #0245a3;
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
