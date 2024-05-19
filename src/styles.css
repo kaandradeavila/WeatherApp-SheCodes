@@ -32,3 +32,10 @@
     background-color: #0245a3;
     cursor: pointer;
 }
+
+.city-weather{
+    background-color: #f5ffFF;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px 0px 40px;
+}
