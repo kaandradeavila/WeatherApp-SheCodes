@@ -1,24 +1,33 @@
 .weather-app{
     background-color: #8fbaf3;
     max-width: 1000px;
+    min-width: 300px;
     padding: 20px;
     border: 1px solid #0245a3;
     border-radius: 10px;
     text-align: center;
 }
 
+.city-search-form{
+    text-align: justify;
+    margin: 10px 20px;
+    display: flex;
+    justify-content:space-between;
+}
 .city-search-bar{
-    margin: 10px 5px 5px;
+    border: none;
+    margin-top: 5px;
+    margin-right: 5px;
     padding: 10px;
-    border: 1px solid #0245a3;
     border-radius: 10px;
     background-color: #F5FFFF;
-    width: 80%;
+    width: 95%;
     color:#0245a3;
+    min-width: 100px;
 }
 
 .city-search-btn{
-    margin: 5px auto;
+    margin-top: 5px;
     padding: 10px 15px;
     border: none;
     border-radius: 10px;
@@ -38,4 +47,8 @@
     border-radius: 10px;
     margin: 20px;
     padding: 20px 0px 40px;
+}
+
+.city-name{
+
 }
