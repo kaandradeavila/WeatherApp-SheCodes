@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="src/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
+   </head>
 <body>
   <div class="weather-app">
     <header>
-      <form class="city-search-form">
-        <input class="city-search-bar" type="search" placeholder="Enter city name...">
-        <input class="city-search-btn" type="button" value="Search">
+      <form class="city-search-form" id="search-form">
+        <input class="city-search-bar" type="search" placeholder="Enter city name..." required id="search-form-input">
+        <input class="city-search-btn" type="submit" value="Search">
       </form>
     </header>
     <div class="city-weather">
-      <h1 class="city-name">Windsor Mill</h1>
+      <h1 class="city-name" id="city">Windsor Mill</h1>
       <div class="current-weather">
         <div class="weather-data">
           <div class="weather-temp">
