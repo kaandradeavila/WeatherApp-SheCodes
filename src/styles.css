@@ -6,6 +6,8 @@
     border: 1px solid #0245a3;
     border-radius: 10px;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0245a3;
 }
 
 .city-search-form{
@@ -22,7 +24,6 @@
     border-radius: 10px;
     background-color: #F5FFFF;
     width: 95%;
-    color:#0245a3;
     min-width: 100px;
 }
 
