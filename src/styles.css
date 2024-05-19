@@ -51,5 +51,32 @@
 }
 
 .city-name{
+    text-transform: uppercase;
+}
 
+.current-weather{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: 500;
+}
+
+.weather-data{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.weather-icon{
+    font-size: 100px;
+}
+
+.time-data{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: right;
 }
