@@ -1,13 +1,36 @@
-function displayTemperature(response){
+function displayWeatherTemperature(){
+}
+
+function displayWeatherCondition(){
+
+}
+
+function displayWeatherIcon(){
+
+}
+
+function displayWeatherDay(){
+
+}
+
+function displayDate()[
+
+]
+
+function displayTime(){
     
 }
 
-function apiTemperatureRequest(){
-    let apiKey = "424369doa037d0347bft3cfcc8cef956";
-    let city = "";
-    let apiUrl = "https://api.shecodes.io/weather/v1/current?query={query}&key={key}";
+function getData(response){
 
-    axios.get(apiUrl).then(displayTemperature);
+}
+
+function apiTemperatureRequest(city){
+    let units = "imperial";
+    let apiKey = "424369doa037d0347bft3cfcc8cef956";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=${units}`;
+
+    axios.get(apiUrl).then(getData);
 }
 
 function handleSearchSubmit(event){
@@ -16,9 +39,11 @@ function handleSearchSubmit(event){
     let searchInput = document.querySelector("#search-form-input");
     let cityElement = document.querySelector("#city");
 
-    cityElement.innerHTML = searchInput.value;
+    let city = (cityElement.innerHTML = searchInput.value);
 
-    apiTemperatureRequest();
+    console.log(city);
+
+    apiTemperatureRequest(city);
 }
 
 let searchForm = document.querySelector("#search-form");
