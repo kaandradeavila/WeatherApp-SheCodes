@@ -69,6 +69,10 @@
     text-align: left;
 }
 
+.weather-description{
+    text-transform: capitalize;
+}
+
 .weather-icon{
     font-size: 100px;
 }

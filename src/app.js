@@ -1,10 +1,22 @@
+function capitalizeWords(str) {
+    return str
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+console.log(capitalizeWords("hello friend")); // Output: "Hello Friend"
+
+
 function displayWeatherTemperature(currentTemperature){
     let currentTemperatureElement = document.querySelector("#weather-temp");
     currentTemperatureElement.innerHTML = Math.round(currentTemperature);
 }
 
-function displayWeatherCondition(){
-
+function displayWeatherCondition(description){
+    let weatherDescriptionElement = document.querySelector("#weather-description");
+    weatherDescriptionElement.innerHTML = capitalizeWords(description);
 }
 
 function displayWeatherIcon(){
@@ -26,6 +38,7 @@ function displayTime(){
 function getData(response){
     console.log(response);
     displayWeatherTemperature(response.data.temperature.current);
+    displayWeatherCondition(response.data.condition.description);
 }
 
 function apiTemperatureRequest(city){
