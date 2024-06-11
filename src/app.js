@@ -23,21 +23,43 @@ function displayWeatherIcon(icon, description){
     weatherIconElement.alt = `${description} icon`;
 }
 
-function displayWeatherDay(){
-
+function displayWeatherDay(day){
+    let currentDayElement = document.querySelector("#current-day");
+    currentDayElement.innerHTML = 'needs to be developed';
 }
 
-function displayDate(){
-
+function displayDate(date){
+    let currentDateElement = document.querySelector("#current-date");
+    currentDateElement.innerHTML = `needs to be developed`;
 }
 
-function displayTime(){
-    
+function displayTime(dateTime){
+    let hours = dateTime.getHours();
+    let minutes = dateTime.getMinutes();
+    let timeDay = 'AM';
+
+    if (hours > 12) {
+        timeDay = 'PM';
+    }
+
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+
+    if (minutes < 10){
+        minutes = `0${minutes}`;
+    }
+
+    let currentTimeElement = document.querySelector("#current-time");
+    currentTimeElement.innerHTML = `${hours}:${minutes} ${timeDay}`;
 }
 
 function ParseTimestamp(timestamp){
-    let date = new Date(timestamp * 1000);
-    console.log(date);
+    let dateTime = new Date (timestamp * 1000)
+
+    displayTime(dateTime);
+    displayDate(dateTime);
+    displayWeatherDay(dateTime);
 }
 
 function getData(response){
