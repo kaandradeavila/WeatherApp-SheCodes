@@ -17,7 +17,6 @@ function displayWeatherCondition(description){
 }
 
 function displayWeatherIcon(icon, description){
-    console.log(icon);
     let weatherIconElement = document.querySelector("#weather-icon");
     weatherIconElement.src = icon;
     weatherIconElement.alt = `${description} icon`;
@@ -32,7 +31,7 @@ function displayWeatherDay(dateTime){
         "Thursday",
         "Friday",
         "Saturday"
-      ];
+    ];
 
     let day = days[dateTime.getDay()];
 
@@ -41,8 +40,29 @@ function displayWeatherDay(dateTime){
 }
 
 function displayDate(dateTime){
+    let dayNumber = dateTime.getDate();
+
+    let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    let month = months[dateTime.getMonth()];
+
+    let year = dateTime.getYear() + 1900;
+
     let currentDateElement = document.querySelector("#current-date");
-    currentDateElement.innerHTML = `needs to be developed`;
+    currentDateElement.innerHTML = `${month} ${dayNumber}, ${year}`;
 }
 
 function displayTime(dateTime){
@@ -50,7 +70,7 @@ function displayTime(dateTime){
     let minutes = dateTime.getMinutes();
     let timeDay = 'AM';
 
-    if (hours > 12) {
+    if (hours > 11) {
         timeDay = 'PM';
     }
 
@@ -66,7 +86,7 @@ function displayTime(dateTime){
     currentTimeElement.innerHTML = `${hours}:${minutes} ${timeDay}`;
 }
 
-function ParseTimestamp(timestamp){
+function parseTimestamp(timestamp){
     let dateTime = new Date (timestamp * 1000)
 
     displayTime(dateTime);
@@ -84,7 +104,7 @@ function getData(response){
     displayWeatherTemperature(currentTemperature);
     displayWeatherCondition(weatherDescription);
     displayWeatherIcon(iconUrl, weatherDescription);
-    ParseTimestamp(timestamp);
+    parseTimestamp(timestamp);
 }
 
 function apiRequest(city){
@@ -102,8 +122,6 @@ function handleSearchSubmit(event){
     let cityElement = document.querySelector("#city");
 
     let city = (cityElement.innerHTML = searchInput.value);
-
-    console.log(city);
 
     apiRequest(city);
 }
