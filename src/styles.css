@@ -50,39 +50,47 @@
     padding: 20px 0px 40px;
 }
 
-.city-name{
-    text-transform: uppercase;
-}
-
 .current-weather{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     font-weight: 500;
+    margin-bottom: 25px;
 }
 
-.weather-data{
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: left;
-}
-
-.weather-description{
-    text-transform: capitalize;
+.city-name{
+    text-transform: uppercase;
 }
 
 .weather-icon{
     font-size: 100px;
 }
 
-.time-data{
+.weather-current-temp{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.weather-summary{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+.weather-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.date-data{
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    text-align: right;
 }
 
 footer{

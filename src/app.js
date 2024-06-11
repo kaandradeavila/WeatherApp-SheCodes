@@ -6,9 +6,6 @@ function capitalizeWords(str) {
         .join(' ');
 }
 
-console.log(capitalizeWords("hello friend")); // Output: "Hello Friend"
-
-
 function displayWeatherTemperature(currentTemperature){
     let currentTemperatureElement = document.querySelector("#weather-temp");
     currentTemperatureElement.innerHTML = Math.round(currentTemperature);
@@ -19,8 +16,11 @@ function displayWeatherCondition(description){
     weatherDescriptionElement.innerHTML = capitalizeWords(description);
 }
 
-function displayWeatherIcon(){
-
+function displayWeatherIcon(icon, description){
+    console.log(icon);
+    let weatherIconElement = document.querySelector("#weather-icon");
+    weatherIconElement.src = icon;
+    weatherIconElement.alt = `${description} icon`;
 }
 
 function displayWeatherDay(){
@@ -32,19 +32,31 @@ function displayDate(){
 }
 
 function displayTime(){
+    
+}
 
+function ParseTimestamp(timestamp){
+    let date = new Date(timestamp * 1000);
+    console.log(date);
 }
 
 function getData(response){
+    let currentTemperature = response.data.temperature.current;
+    let weatherDescription = response.data.condition.description;
+    let iconUrl = response.data.condition.icon_url;
+    let timestamp = response.data.time;
+
     console.log(response);
-    displayWeatherTemperature(response.data.temperature.current);
-    displayWeatherCondition(response.data.condition.description);
+    displayWeatherTemperature(currentTemperature);
+    displayWeatherCondition(weatherDescription);
+    displayWeatherIcon(iconUrl, weatherDescription);
+    ParseTimestamp(timestamp);
 }
 
-function apiTemperatureRequest(city){
+function apiRequest(city){
     let units = "imperial";
     let apiKey = "424369doa037d0347bft3cfcc8cef956";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
     axios.get(apiUrl).then(getData);
 }
@@ -59,8 +71,10 @@ function handleSearchSubmit(event){
 
     console.log(city);
 
-    apiTemperatureRequest(city);
+    apiRequest(city);
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
+
+apiRequest("Windsor Mill");
