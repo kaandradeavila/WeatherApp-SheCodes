@@ -94,23 +94,36 @@ function parseTimestamp(timestamp){
     displayWeatherDay(dateTime);
 }
 
+function displayWind(wind){
+    let windElement = document.querySelector("#wind");
+    windElement.innerHTML = `${wind} mi/h`
+}
+
+function displayHumidity(humidity){
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = `${humidity}%`
+}
+
 function getData(response){
     let currentTemperature = response.data.temperature.current;
     let weatherDescription = response.data.condition.description;
     let iconUrl = response.data.condition.icon_url;
     let timestamp = response.data.time;
+    let humidity = response.data.temperature.humidity;
+    let wind = response.data.wind.speed;
 
-    console.log(response);
     displayWeatherTemperature(currentTemperature);
     displayWeatherCondition(weatherDescription);
     displayWeatherIcon(iconUrl, weatherDescription);
     parseTimestamp(timestamp);
+    displayHumidity(humidity);
+    displayWind(wind);
 }
 
 function apiRequest(city){
     let units = "imperial";
     let apiKey = "424369doa037d0347bft3cfcc8cef956";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
 
     axios.get(apiUrl).then(getData);
 }

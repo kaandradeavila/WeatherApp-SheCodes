@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="src/styles.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="src/styles.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+</head>
 <body>
   <div class="weather-app">
     <header>
@@ -29,18 +32,19 @@
           </div>
         </div>        
       </div>
+      <br>
       <div class="weather-summary">
         <div class="weather-data">
-          <div id="weather-description" class="weather-description">
-          </div>
-          <div id="current-time">
-          </div>
+          <div id="weather-description" class="weather-description"></div>
+          <div id="current-time"></div>
+          <br>
+          <div>Humidity: <span class="humidity" id="humidity"></span></div>
         </div>
         <div class="date-data">
-          <div id="current-day">
-          </div>
-          <div id="current-date">
-          </div>
+          <div id="current-day"></div>
+          <div id="current-date"></div>
+          <br>
+          <div>Wind: <span class="wind" id="wind"></span></div>
         </div>
       </div>
     </div>

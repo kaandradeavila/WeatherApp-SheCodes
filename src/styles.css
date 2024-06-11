@@ -1,50 +1,64 @@
+.urbanist-font {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .weather-app{
-    background-color: #8fbaf3;
+    background-color: #0060ca;
     max-width: 1000px;
     min-width: 300px;
     padding: 20px;
-    border: 1px solid #0245a3;
+    border: 1px solid #090089;
     border-radius: 10px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #0245a3;
+    color: #090089;
+    display: block;
+    margin: 10px auto;
 }
 
 .city-search-form{
     text-align: justify;
     margin: 10px 20px;
     display: flex;
-    justify-content:space-between;
+    justify-content:baseline;
 }
 .city-search-bar{
     border: none;
     margin-top: 5px;
-    margin-right: 5px;
-    padding: 10px;
+    margin-right: 10px;
+    padding: 15px 10px;
     border-radius: 10px;
     background-color: #F5FFFF;
-    width: 95%;
+    width: 90%;
     min-width: 100px;
+    font-family: urbanist;
+    font-size: 16px;
+    justify-content: left;
 }
 
 .city-search-btn{
     margin-top: 5px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background-color: #BDF1F6;
-    color: #0245a3;
+    color: #090089;
     transition: all 200ms ease-in-out;
+    font-family: urbanist;
+    font-size: 18px;
 }
 
 .city-search-btn:hover{
     color: #BDF1F6;
-    background-color: #0245a3;
+    background-color: #090089;
     cursor: pointer;
 }
 
 .city-weather{
-    background-color: #f5ffFF;
+    background-color: #91ceff;
     border-radius: 10px;
     margin: 20px;
     padding: 20px 0px 40px;
@@ -60,10 +74,10 @@
 
 .city-name{
     text-transform: uppercase;
-}
-
-.weather-icon{
-    font-size: 100px;
+    font-family: urbanist;
+    font-weight: 800;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
 .weather-current-temp{
@@ -75,9 +89,10 @@
     display: flex;
     flex-direction: row;
     justify-content:space-evenly;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     text-align: center;
+    font-family: urbanist;
 }
 
 .weather-data{
@@ -93,14 +108,19 @@
     justify-content: space-around;
 }
 
+.humidity, .wind{
+    color: #191729;
+    font-style: italic;
+}
+
 footer{
-    color: #2e2a4e;
+    color: #020214;
     opacity: 80%;
     font-size: 14px;
 }
 
 footer a{
-    color: #0245a3;
+    color: #090089;
     text-decoration: none;
     transition: all 200ms ease-in-out;
 }
