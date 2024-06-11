@@ -23,12 +23,24 @@ function displayWeatherIcon(icon, description){
     weatherIconElement.alt = `${description} icon`;
 }
 
-function displayWeatherDay(day){
+function displayWeatherDay(dateTime){
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ];
+
+    let day = days[dateTime.getDay()];
+
     let currentDayElement = document.querySelector("#current-day");
-    currentDayElement.innerHTML = 'needs to be developed';
+    currentDayElement.innerHTML = day;
 }
 
-function displayDate(date){
+function displayDate(dateTime){
     let currentDateElement = document.querySelector("#current-date");
     currentDateElement.innerHTML = `needs to be developed`;
 }
