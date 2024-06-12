@@ -8,7 +8,7 @@
 .weather-app{
     background-color: #0060ca;
     max-width: 1000px;
-    min-width: 300px;
+    min-width: 500px;
     padding: 20px;
     border: 1px solid #090089;
     border-radius: 10px;
@@ -37,6 +37,7 @@
     font-family: urbanist;
     font-size: 16px;
     justify-content: left;
+    color: #090089;
 }
 
 .city-search-btn{
@@ -77,7 +78,7 @@
     font-family: urbanist;
     font-weight: 800;
     font-size: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .weather-current-temp{
@@ -93,29 +94,27 @@
     font-size: 20px;
     text-align: center;
     font-family: urbanist;
+    background-color: #fcdc74 ;
+    margin: 0px 40px;
+    padding: 30px 0px;
+    border: none;
+    border-radius: 10px;
 }
 
-.weather-data{
+.weather-data, .date-data{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.date-data{
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.humidity, .wind{
+.humidity, .wind, .wind-unit{
     color: #191729;
     font-style: italic;
 }
 
 footer{
-    color: #020214;
-    opacity: 80%;
+    color: #010113;
+    opacity: 90%;
     font-size: 14px;
 }
 

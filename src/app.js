@@ -96,7 +96,7 @@ function parseTimestamp(timestamp){
 
 function displayWind(wind){
     let windElement = document.querySelector("#wind");
-    windElement.innerHTML = `${wind} mi/h`
+    windElement.innerHTML = `${wind} `
 }
 
 function displayHumidity(humidity){
@@ -142,4 +142,4 @@ function handleSearchSubmit(event){
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
 
-apiRequest("Windsor Mill");
+apiRequest("Baltimore");
