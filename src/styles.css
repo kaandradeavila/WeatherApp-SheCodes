@@ -7,8 +7,8 @@
 
 .weather-app{
     background-color: #0060ca;
-    max-width: 1000px;
-    min-width: 500px;
+    max-width: 1100px;
+    min-width: 900px;
     padding: 20px;
     border: 1px solid #090089;
     border-radius: 10px;
@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 
-.city-weather, .weather-forecast{
+.city-weather{
     background-color: #91ceff;
     border-radius: 10px;
     margin: 20px;
@@ -70,7 +70,6 @@
     flex-direction: row;
     justify-content: space-around;
     font-weight: 500;
-    margin-bottom: 25px;
 }
 
 .city-name{
@@ -84,6 +83,7 @@
 .weather-current-temp{
     font-size: 30px;
     font-weight: 500;
+    margin-bottom: 0px;
 }
 
 .weather-summary{
@@ -94,17 +94,20 @@
     font-size: 20px;
     text-align: center;
     font-family: urbanist;
-    background-color: #fcdc74 ;
-    margin: 0px 40px;
-    padding: 30px 0px;
+    margin: 0px 200px;
     border: none;
     border-radius: 10px;
+    background-color: #fcdc74;
 }
 
 .weather-data, .date-data{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 15px 40px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
 }
 
 .humidity, .wind, .wind-unit{
@@ -116,6 +119,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px 0px 40px;
 }
 
 .weather-forecast-section{
@@ -123,9 +128,9 @@
     font-size: 20px;
     text-align: center;
     font-family: urbanist;
-    background-color: #fcdc74 ;
+    background-color: #91ceff;
     margin: 0 auto;
-    padding: 30px 0px;
+    padding: 30px 23px;
     border: none;
     border-radius: 10px;
 }
@@ -133,18 +138,29 @@
 .forecast-temperatures{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
+    color: #191729;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.forecast-temperature-max {
+    font-weight: 600;
+}
+
+.forecast-temperature-min {
+    opacity: 80%;
 }
 
 footer{
-    color: #010113;
-    opacity: 90%;
+    color: #191729;
     font-size: 14px;
 }
 
 footer a{
-    color: #090089;
+    color: #140e72;
     text-decoration: none;
     transition: all 200ms ease-in-out;
+    opacity: 80%;
 }
 
 footer a:hover{
