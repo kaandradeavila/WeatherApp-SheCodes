@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 
-.city-weather{
+.city-weather, .weather-forecast{
     background-color: #91ceff;
     border-radius: 10px;
     margin: 20px;
@@ -110,6 +110,29 @@
 .humidity, .wind, .wind-unit{
     color: #191729;
     font-style: italic;
+}
+
+.weather-forecast{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.weather-forecast-section{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    font-family: urbanist;
+    background-color: #fcdc74 ;
+    margin: 0px 40px;
+    padding: 30px 0px;
+    border: none;
+    border-radius: 10px;
+}
+
+.forecast-temperatures{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
 }
 
 footer{
