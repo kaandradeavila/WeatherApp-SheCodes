@@ -139,7 +139,39 @@ function handleSearchSubmit(event){
     apiRequest(city);
 }
 
+function displayForecast(){
+    let days =[
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+    ];
+    
+    let forecastHtml = "";
+        
+    days.forEach(function(day) {
+        forecastHtml += `
+        <div class="weather-forecast-section">
+        <div class="weather-forecast-day">${day}</div>
+        <div class="forecast-icon">☀️</div>
+        <div class="row">
+        <div class="forecast-temperatures col-2">
+        <span class="forecast-temperature-max">80º</span>
+        <span class="forecast-temperature-min">60º</span>
+        </div>
+        </div>
+        </div>
+        `
+    });
+    
+    let forecast = document.querySelector("#weather-forecast");
+    forecast.innerHTML = forecastHtml;
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
 
 apiRequest("Baltimore");
+displayForecast();
+
