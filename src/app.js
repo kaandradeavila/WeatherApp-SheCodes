@@ -22,7 +22,8 @@ function displayWeatherIcon(icon, description){
     weatherIconElement.alt = `${description} icon`;
 }
 
-function displayWeatherDay(dateTime){
+function displayWeatherDay(timestamp){
+    let dateTime = parseTimestamp(timestamp);
     let days = [
         "Sunday",
         "Monday",
@@ -39,7 +40,8 @@ function displayWeatherDay(dateTime){
     currentDayElement.innerHTML = day;
 }
 
-function displayDate(dateTime){
+function displayDate(timestamp){
+    let dateTime = parseTimestamp(timestamp);
     let dayNumber = dateTime.getDate();
 
     let months = [
@@ -65,7 +67,8 @@ function displayDate(dateTime){
     currentDateElement.innerHTML = `${month} ${dayNumber}, ${year}`;
 }
 
-function displayTime(dateTime){
+function displayTime(timestamp){
+    let dateTime = parseTimestamp(timestamp);
     let hours = dateTime.getHours();
     let minutes = dateTime.getMinutes();
     let timeDay = 'AM';
@@ -86,12 +89,27 @@ function displayTime(dateTime){
     currentTimeElement.innerHTML = `${hours}:${minutes} ${timeDay}`;
 }
 
+function displayForecastDay(timestamp){
+    let dateTime = parseTimestamp(timestamp);
+
+    let days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+    ];
+
+    let day = days[dateTime.getDay()];
+
+    return day;
+}
+
 function parseTimestamp(timestamp){
     let dateTime = new Date (timestamp * 1000)
-
-    displayTime(dateTime);
-    displayDate(dateTime);
-    displayWeatherDay(dateTime);
+    return dateTime;
 }
 
 function displayWind(wind){
@@ -104,7 +122,7 @@ function displayHumidity(humidity){
     humidityElement.innerHTML = `${humidity}%`
 }
 
-function getData(response){
+function getWeatherData(response){
     let currentTemperature = response.data.temperature.current;
     let weatherDescription = response.data.condition.description;
     let iconUrl = response.data.condition.icon_url;
@@ -115,17 +133,46 @@ function getData(response){
     displayWeatherTemperature(currentTemperature);
     displayWeatherCondition(weatherDescription);
     displayWeatherIcon(iconUrl, weatherDescription);
-    parseTimestamp(timestamp);
+    displayTime(timestamp);
+    displayDate(timestamp);
+    displayWeatherDay(timestamp);
     displayHumidity(humidity);
     displayWind(wind);
+}
+
+function getForecastData(response){
+    let days = response.data.daily;    
+    let forecastHtml = "";
+        
+    days.forEach(function(day, index) {
+        if (index !== 0){
+            forecastHtml += `
+            <div class="weather-forecast-section">
+            <div class="weather-forecast-day">${displayForecastDay(day.time)}</div>
+            <img src="${day.condition.icon_url}" alt="${day.condition.description}">
+            <div class="row">
+            <div class="forecast-temperatures col-2">
+            <span class="forecast-temperature-max">${Math.round(day.temperature.maximum)}º</span>
+            <span class="forecast-temperature-min">${Math.round(day.temperature.minimum)}º</span>
+            </div>
+            </div>
+            </div>
+            `
+        }
+    });
+    
+    let forecast = document.querySelector("#weather-forecast");
+    forecast.innerHTML = forecastHtml;
 }
 
 function apiRequest(city){
     let units = "imperial";
     let apiKey = "424369doa037d0347bft3cfcc8cef956";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
-
-    axios.get(apiUrl).then(getData);
+    let apiUrlWeather = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+    let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=${units}`;
+    
+    axios.get(apiUrlWeather).then(getWeatherData);
+    axios.get(apiUrlForecast).then(getForecastData);
 }
 
 function handleSearchSubmit(event){
@@ -139,39 +186,7 @@ function handleSearchSubmit(event){
     apiRequest(city);
 }
 
-function displayForecast(){
-    let days =[
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat"
-    ];
-    
-    let forecastHtml = "";
-        
-    days.forEach(function(day) {
-        forecastHtml += `
-        <div class="weather-forecast-section">
-        <div class="weather-forecast-day">${day}</div>
-        <div class="forecast-icon">☀️</div>
-        <div class="row">
-        <div class="forecast-temperatures col-2">
-        <span class="forecast-temperature-max">80º</span>
-        <span class="forecast-temperature-min">60º</span>
-        </div>
-        </div>
-        </div>
-        `
-    });
-    
-    let forecast = document.querySelector("#weather-forecast");
-    forecast.innerHTML = forecastHtml;
-}
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
 
 apiRequest("Baltimore");
-displayForecast();
-
